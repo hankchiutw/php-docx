@@ -28,10 +28,10 @@ Class Docx {
     }
 
 
-	/**
-	 * Get contents in html format
-	 */
-	public function toHtml(){
+    /**
+     * Get contents in html format
+     */
+    public function toHtml(){
         $ret = "";
         $textNodes = $this->_getTextNodes();
 
@@ -56,8 +56,8 @@ Class Docx {
                 if(isset($testerNodes)){
                     foreach($testerNodes as $testerNode){
                         //if($testerNode->nodeName=="w:b") $style .= "font-weight:bold; ";
-                    	if($testerNode->nodeName=="w:bCs") $style .= "font-weight:bold; border-bottom: solid 1px black; ";
-                    	//if($testerNode->nodeName=="w:szCs") $style .= "border-bottom: solid 1px black; ";
+                        if($testerNode->nodeName=="w:bCs") $style .= "font-weight:bold; border-bottom: solid 1px black; ";
+                        //if($testerNode->nodeName=="w:szCs") $style .= "border-bottom: solid 1px black; ";
                         if($testerNode->nodeName=="w:color" && $testerNode->attributes->getNamedItem("val")->nodeValue!="000000"){
                             $style .= "color:#".$testerNode->attributes->getNamedItem("val")->nodeValue.";";
                         }
